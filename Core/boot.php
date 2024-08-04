@@ -13,11 +13,11 @@ if (!defined('shop')) {
 
 use pluslib\Config;
 
-// use App\Auth;
+use App\Auth;
 
 Config::$passwordHash_SHA256 = false;
 Config::$devMode = true;
 Config::$login_page = c_url('/', false);
-// Config::$AuthClass = Auth::class;
+Config::$AuthClass = Auth::class;
 
 Config::init();
