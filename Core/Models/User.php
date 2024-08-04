@@ -1,9 +1,9 @@
 <?php
 namespace Birjandshop\Models;
 
-use Pluslib\Eloquent\Model;
+use pluslib\App\Models\User as ModelsUser;
 
-class User extends Model
+class User extends ModelsUser
 {
 
     private function set_password($password)
