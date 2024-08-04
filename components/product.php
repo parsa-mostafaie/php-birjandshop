@@ -12,10 +12,15 @@ $_product = $__component__product;
   <a class="card h-100 d-flex justify-content-between" href="#">
     <main>
       <header>
-        <div class="countdown" data-time="<?= $_product->dicount_date ?>">
+        <div class="countdown" data-time="<?= $_product->discount_date ?>">
           ---
         </div>
-        <img src="<?= url(urlOfUpload($_product->thumbnail)) ?>" alt="نام محصول">
+        <div class="position-relative">
+          <img src="<?= url(urlOfUpload($_product->thumbnail)) ?>" alt="نام محصول">
+          <?php if ($_product->has_discount()): ?>
+            <div class="discount position-absolute top-0 " style="left: 0"><?= $_product->discount_percent ?>%</div>
+          </div>
+        <?php endif; ?>
       </header>
       <h3><?= $_product->title ?></h3>
       <?php if ($_product->stock < 10): ?>
@@ -24,14 +29,11 @@ $_product = $__component__product;
     </main>
 
     <footer>
-      <?php if ($_product->has_discount()): ?>
-        <div class="discount"><?= $_product->discount_percent ?>%</div>
-      <?php endif; ?>
+
       <div class="sale-price">
         <?= number_format($_product->get_sale_price()) ?>
         <span>تومان</span>
       </div>
-      <div></div>
       <?php if ($_product->has_discount()): ?>
         <div class="price"><?= number_format($_product->price) ?></div>
       <?php endif; ?>

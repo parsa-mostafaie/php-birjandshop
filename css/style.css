@@ -24,6 +24,7 @@ section {
 
 /* Cards */
 .card img {
+  aspect-ratio: 1;
   width: 100%;
   transition: 0.3s;
 }
@@ -66,7 +67,7 @@ section {
   text-align: left;
 }
 
-.card footer .discount {
+.card .discount {
   background: red;
   width: 40px;
   text-align: center;
@@ -95,13 +96,17 @@ section {
 
 .card .price:before {
   content: "";
-  left: 0;
-  width: 70%;
+  /*left: 0;
+  */width: 70%;
   background: #ff4d4d;
   height: 1px;
   position: absolute;
   transform: rotate(-10deg);
   top: 10px;
+  -webkit-transform: rotate(-10deg);
+  -moz-transform: rotate(-10deg);
+  -ms-transform: rotate(-10deg);
+  -o-transform: rotate(-10deg);
 }
 
 .card:hover img {
