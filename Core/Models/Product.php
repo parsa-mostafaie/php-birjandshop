@@ -11,7 +11,7 @@ class Product extends Model
     public function get_sale_price()
     {
         $dp = $this->discount_percent;
-        if (strtotime($this->discount_date) > time()) {
+        if (strtotime($this->discount_date) <= time() &&!is_null($this->discount_date)) {
             $dp = 0;
         }
         return $this->price * (100 - $dp) / 100;
