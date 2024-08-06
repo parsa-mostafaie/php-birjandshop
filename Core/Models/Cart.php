@@ -1,6 +1,8 @@
 <?php
 namespace Birjandshop\Models;
 
+use pluslib\Collections\Arr;
+
 class Cart
 {
   function __construct()
@@ -12,11 +14,11 @@ class Cart
   function add_item($product, $qty = 1)
   {
     if ($this->exists($product)) {
-      session('cart')[$product]['qty'] += $qty;
+      session('cart')[$product] += $qty;
       return $this;
     }
 
-    session('cart')[$product] = (new CartItem($qty, $product))->to_array();
+    session('cart')[$product] = $qty;
 
     return $this;
   }
@@ -77,7 +79,7 @@ class Cart
   function get_cart($ses = false)
   {
     if (!$ses) {
-      return array_map(fn($item) => new CartItem($item['qty'] ?? 1, $item['product']), $this->get_cart(true));
+      return Arr::map(session('cart'), fn($qty, $product) => new CartItem($qty ?? 1, $product));
     }
     return session('cart');
   }
@@ -87,7 +89,8 @@ class Cart
     if (!$this->exists($product_id)) {
       return $this->add_item($product_id, $qty);
     }
-    session('cart')[$product_id]['qty'] = $qty;
+
+    session('cart')[$product_id] = $qty;
     return $this;
   }
 
