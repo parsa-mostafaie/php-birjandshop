@@ -25,7 +25,7 @@ function cart_table()
 
     $td_render(function () use ($cartItem) {
       ?>
-      <a href="#">
+      <a href="<?= $cartItem->get_product()->get_route() ?>">
         <?= $cartItem->get_product()->cart_image() ?>
         <p>
           <?= $cartItem->get_product()->title ?>
