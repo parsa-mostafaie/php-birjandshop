@@ -5,7 +5,7 @@
  * @param array $fields
  * @param array $values
  * @param callable $render
- * @return void
+ * @return bool|void
  */
 function tablify(
   $fields = [],
@@ -18,7 +18,7 @@ function tablify(
 
   if (count($values) == 0) {
     echo value($empty_msg);
-    return;
+    return false;
   }
 
   $td_render = function ($values) {

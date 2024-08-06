@@ -20,7 +20,7 @@ function cart_table()
     <?php
   };
 
-  tablify($fields, $values, function (CartItem $cartItem, callable $td_render) {
+  return tablify($fields, $values, function (CartItem $cartItem, callable $td_render) {
     $td_render(cart()->index_of($cartItem->get_product()->_id()) + 1);
 
     $td_render(function () use ($cartItem) {

@@ -118,7 +118,7 @@ section {
   background: #fff;
   border-radius: 15px;
   padding: 20px;
-  position: relative;
+  /* position: relative; */
 }
 
 .cart-container h1 {
@@ -221,18 +221,19 @@ table.cart-table tr:hover svg {
   opacity: 1;
 }
 
+/* 
 .empty-cart {
   position: absolute;
   left: 20px;
   top: 20px;
-}
+} */
 
 /* Search Box */
 form.search input {
   width: 400px;
 }
 
-form.search {
+/* form.search {
   position: relative;
 }
 
@@ -240,7 +241,7 @@ form.search button {
   position: absolute;
   left: 0;
   top: 0;
-}
+} */
 
 /* Go-to-cart link */
 a.go-to-cart svg {
