@@ -81,4 +81,9 @@ class Product extends Model
             false
         );
     }
+
+    function is_in_cart()
+    {
+        return cart()->index_of($this->_id()) !== false;
+    }
 }
