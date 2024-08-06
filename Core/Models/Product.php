@@ -8,6 +8,8 @@ class Product extends Model
 
     protected $table = 'products';
 
+    protected $id_field = "ID";
+    
     public function get_sale_price()
     {
         $dp = $this->discount_percent;
@@ -55,6 +57,15 @@ class Product extends Model
     public function add_to_cart($qty)
     {
         cart()->add_item($this->_id(), $qty);
+    }
+
+    function card_image(){
+        return ProductImage::get_img($this->_id());
+    }
+
+    function cart_image()
+    {
+        return ProductImage::get_img($this->_id(), 'width="36" height="36"');
     }
 
 }
