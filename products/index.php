@@ -36,16 +36,6 @@ normalize_route();
   <img class="w-50" src="<?= urlOfUpload($product->thumbnail); ?>" alt="">
   <br>
   <br>
-  <?php if ($product->is_saleable()): ?>
-    <?php if (!$product->is_in_cart()): ?>
-      <a class="btn btn-primary" href="/product.php?id=<?php echo $product->ID; ?>&add_to_cart=1">
-        افزودن به سبد خرید
-      </a>
-    <?php else: ?>
-      <a class="btn btn-danger" href="/product.php?id=<?php echo $product->ID; ?>&add_to_cart=1">
-        حذف از سبد خرید
-      </a>
-    <?php endif; ?>
-  <?php endif; ?>
+  <?= view('product-cart', 'pcart',props: ['id' => $product->_id()]) ?>
 </section>
 <?php include_once ('../components/footer.php') ?>
