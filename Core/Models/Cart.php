@@ -34,7 +34,7 @@ class Cart
 
   function remove_item($product)
   {
-    if (isset(session('cart')[$product]))
+    if ($this->exists($product))
       unset(session('cart')[$product]);
     return $this;
   }

@@ -31,7 +31,8 @@ function cart_table()
           <?= $cartItem->get_product()->title ?>
         </p>
       </a>
-      <a href="#" class="remove-item">
+      <a http-method="delete" ajax-reload="#cart" danger-btn href="<?= url(c_url('/apis/remove_from_cart.php'), ['pid' => $cartItem->get_product()->_id()]) ?>"
+        class="remove-item">
         <?= svg_remove_item() ?>
       </a>
       <?php

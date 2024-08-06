@@ -1,5 +1,5 @@
 <?php
-use Birjandshop\Model\Product;
+use Birjandshop\Models\Product;
 
 if( isset( $_GET['id'] ) && isset( $_GET['add_to_cart'] ) ){
 
