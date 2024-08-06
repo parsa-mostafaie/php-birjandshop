@@ -14,7 +14,9 @@
       </form>
       <div class="mx-2 d-flex justify-content-center">
         <a href="<?= url(c_url('/cart.php')) ?>" class="go-to-cart">
-          <span class="item-count"><?= cart()->pure_count() ?></span>
+          <?php if (cart()->pure_count()): ?>
+            <span class="item-count"><?= cart()->pure_count() ?></span>
+          <?php endif; ?>
           <?= svg_cart() ?>
         </a>
         <a href="#" class="btn btn-secondary">
