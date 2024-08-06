@@ -4,9 +4,9 @@ include 'components/header.php';
 <section class="container cart-container">
   <div class="d-flex justify-content-between">
     <h1>سبد خرید</h1>
-    <div>
-      <a http-method="delete" danger-btn ajax-reload="#cart" href="<?= url(c_url('/apis/empty_cart.php')) ?>" class="btn empty-cart btn-danger"> خالی کردن سبد </a>
-      <button ajax-reload="#cart" class="btn btn-primary">تازه سازی</button>
+    <div class="d-flex gap-1">
+      <?= view('cart-me', 'cart-empty', without_loading: true) ?>
+      <div><button ajax-reload="[id^=cart]" class="btn btn-primary">تازه سازی</button></div>
     </div>
   </div>
   <?= view('cart') ?>
