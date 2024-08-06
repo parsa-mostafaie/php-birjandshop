@@ -5,18 +5,18 @@ class Cart
 {
   function __construct()
   {
-    if (!isset($_SESSION['cart'])) {
-      $_SESSION['cart'] = [];
+    if (!isset(session_arr()['cart'])) {
+      $this->empty();
     }
   }
   function add_item($product, $qty = 1)
   {
     if ($this->exists($product)) {
-      $_SESSION['cart'][$product]['qty'] += $qty;
+      session('cart')[$product]['qty'] += $qty;
       return $this;
     }
 
-    $_SESSION['cart'][$product] = (new CartItem($qty, $product))->to_array();
+    session('cart')[$product] = (new CartItem($qty, $product))->to_array();
 
     return $this;
   }
@@ -31,16 +31,21 @@ class Cart
 
   function remove_item($product)
   {
-    if (isset($_SESSION['cart'][$product]))
-      unset($_SESSION['cart'][$product]);
+    if (isset(session('cart')[$product]))
+      unset(session('cart')[$product]);
     return $this;
   }
 
   function empty()
   {
-    $_SESSION['cart'] = [];
+    session_arr()['cart'] = [];
 
     return $this;
+  }
+
+  function pure_count()
+  {
+    return count($this->get_cart(true));
   }
 
   function get_count()
@@ -66,7 +71,7 @@ class Cart
 
   function exists($product_id)
   {
-    return isset($_SESSION['cart'][$product_id]);
+    return isset(session('cart')[$product_id]);
   }
 
   function get_cart($ses = false)
@@ -74,7 +79,7 @@ class Cart
     if (!$ses) {
       return array_map(fn($item) => new CartItem($item['qty'] ?? 1, $item['product']), $this->get_cart(true));
     }
-    return $_SESSION['cart'];
+    return session('cart');
   }
 
   function set_qty($product_id, $qty = 1)
@@ -82,13 +87,13 @@ class Cart
     if (!$this->exists($product_id)) {
       return $this->add_item($product_id, $qty);
     }
-    $_SESSION['cart'][$product_id]['qty'] = $qty;
+    session('cart')[$product_id]['qty'] = $qty;
     return $this;
   }
 
   function index_of($product_id)
   {
-    return array_search($product_id, array_keys($_SESSION['cart']));
+    return array_search($product_id, array_keys(session('cart')));
   }
 
 }

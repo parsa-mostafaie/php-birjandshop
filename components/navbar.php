@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light container mt-2 rounded">
   <div class="container-fluid">
-    <a href="#" class="navbar-brand">
+    <a href="<?= url(c_url('/')) ?>" class="navbar-brand">
       <img src="https://www.daneshjooyar.com/wp-content/themes/daneshlight/Images/logotype.svg" alt="">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -13,8 +13,8 @@
         <button class="btn btn-outline-success" type="submit">جستجو</button>
       </form>
       <div class="mx-2 d-flex justify-content-center">
-        <a href="#" class="go-to-cart">
-          <span class="item-count">2</span>
+        <a href="<?= url(c_url('/cart.php')) ?>" class="go-to-cart">
+          <span class="item-count"><?= cart()->pure_count() ?></span>
           <?= svg_cart() ?>
         </a>
         <a href="#" class="btn btn-secondary">
