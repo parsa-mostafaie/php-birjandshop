@@ -16,7 +16,7 @@ $_product = $__component__product;
           ---
         </div>
         <div class="position-relative">
-          <img src="<?= url(urlOfUpload($_product->thumbnail)) ?>" alt="نام محصول">
+          <?= $_product->card_image()?>
           <?php if ($_product->has_discount()): ?>
             <div class="discount position-absolute top-0 " style="left: 0"><?= $_product->discount_percent ?>%</div>
           </div>
