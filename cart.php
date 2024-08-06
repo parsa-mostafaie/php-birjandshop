@@ -1,8 +1,10 @@
-<?php include 'components/header.php'; ?>
+<?php
+include 'components/header.php';
+?>
 <section class="container cart-container">
   <h1>سبد خرید</h1>
   <a href="#" class="btn empty-cart btn-danger"> خالی کردن سبد </a>
-  <table class="cart-table">
+  <!-- <table class="cart-table">
     <thead>
       <tr>
         <th>#</th>
@@ -128,7 +130,8 @@
         </td>
       </tr>
     </tbody>
-  </table>
+  </table> -->
+  <?php cart_table() ?>
   <a href="#" class="btn btn-success mt-3"> پرداخت </a>
 </section>
 <?php include 'components/footer.php';
