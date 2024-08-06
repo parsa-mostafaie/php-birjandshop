@@ -13,12 +13,13 @@ class Cart
   }
   function add_item($product, $qty = 1)
   {
-    if ($this->exists($product)) {
-      session('cart')[$product] += $qty;
-      return $this;
-    }
+    if (!Product::find($product))
+      return; // Product not found! so return
 
-    session('cart')[$product] = $qty;
+    if (!$this->exists($product))
+      session('cart')[$product] = 0;
+
+    $this->set_qty($product, $qty);
 
     return $this;
   }
@@ -88,6 +89,12 @@ class Cart
   {
     if (!$this->exists($product_id)) {
       return $this->add_item($product_id, $qty);
+    }
+
+    $qty = min($qty, Product::find($product_id)->stock);
+
+    if ($qty <= 0) {
+      return $this->remove_item($product_id);
     }
 
     session('cart')[$product_id] = $qty;
