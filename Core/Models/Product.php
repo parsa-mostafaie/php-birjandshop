@@ -9,11 +9,11 @@ class Product extends Model
     protected $table = 'products';
 
     protected $id_field = "ID";
-    
+
     public function get_sale_price()
     {
         $dp = $this->discount_percent;
-        if (strtotime($this->discount_date) <= time() &&!is_null($this->discount_date)) {
+        if (strtotime($this->discount_date) <= time() && !is_null($this->discount_date)) {
             $dp = 0;
         }
         return $this->price * (100 - $dp) / 100;
@@ -59,7 +59,8 @@ class Product extends Model
         cart()->add_item($this->_id(), $qty);
     }
 
-    function card_image(){
+    function card_image()
+    {
         return ProductImage::get_img($this->_id());
     }
 
@@ -68,4 +69,16 @@ class Product extends Model
         return ProductImage::get_img($this->_id(), 'width="36" height="36"');
     }
 
+    function slug()
+    {
+        return slugify($this->title);
+    }
+
+    function get_route()
+    {
+        return c_url(
+            "/products/{$this->_id()}/{$this->slug()}",
+            false
+        );
+    }
 }

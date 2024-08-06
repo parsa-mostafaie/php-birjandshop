@@ -9,14 +9,14 @@ $_product = $__component__product;
 
 ?>
 <div class="col-sm-3">
-  <a class="card h-100 d-flex justify-content-between" href="#">
+  <a class="card h-100 d-flex justify-content-between" href="<?= url($_product->get_route()) ?>">
     <main>
       <header>
         <div class="countdown" data-time="<?= $_product->discount_date ?>">
           ---
         </div>
         <div class="position-relative">
-          <?= $_product->card_image()?>
+          <?= $_product->card_image() ?>
           <?php if ($_product->has_discount()): ?>
             <div class="discount position-absolute top-0 " style="left: 0"><?= $_product->discount_percent ?>%</div>
           </div>
