@@ -14,13 +14,31 @@ function cart_table()
 
   $values = cart()->get_cart();
 
+  if (count($values)) {
+    $values[] = null;
+  }
+
   $empty = function () {
     ?>
     <div class="alert alert-primary">سبد خرید شما خالی است!</div>
     <?php
   };
 
-  return tablify($fields, $values, function (CartItem $cartItem, callable $td_render) {
+  return tablify($fields, $values, function (CartItem|null $cartItem, callable $td_render) {
+    if (is_null($cartItem)) {
+      $td_render([
+        '',
+        'جمع کل',
+        '',
+        '',
+        function () { ?>
+        <ins><?= number_format(cart()->get_subtotal()); ?></ins>
+        <?php
+        }
+      ]);
+      return;
+    }
+
     $td_render(cart()->index_of($cartItem->get_product()->_id()) + 1);
 
     $td_render(function () use ($cartItem) {
