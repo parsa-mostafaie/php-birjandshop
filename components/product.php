@@ -9,7 +9,7 @@ $_product = $__component__product;
 
 ?>
 <div class="col-sm-3">
-  <a class="card h-100 d-flex justify-content-between" href="<?= url($_product->get_route()) ?>">
+  <a class="card-product card h-100 d-flex justify-content-between" href="<?= url($_product->get_route()) ?>">
     <main>
       <header>
         <div class="countdown" data-time="<?= $_product->discount_date ?>">
