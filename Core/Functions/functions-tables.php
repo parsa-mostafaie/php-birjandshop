@@ -31,7 +31,8 @@ function cart_table()
           <?= $cartItem->get_product()->title ?>
         </p>
       </a>
-      <a http-method="delete" ajax-reload="[id^=cart]" danger-btn href="<?= url(c_url('/apis/remove_from_cart.php'), ['pid' => $cartItem->get_product()->_id()]) ?>"
+      <a http-method="delete" ajax-reload="[id^=cart]" danger-btn
+        href="<?= url(c_url('/apis/remove_from_cart.php'), ['pid' => $cartItem->get_product()->_id()]) ?>"
         class="remove-item">
         <?= svg_remove_item() ?>
       </a>
@@ -55,5 +56,5 @@ function cart_table()
       <?php
     });
 
-  }, $empty, 'cart-table');
+  }, $empty, 'cart-table ' . TABLE_BASE_CSS_CLASS);
 }
