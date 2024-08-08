@@ -1,17 +1,17 @@
 jQuery(document).ready(function($){
 
     function second_to_time( seconds ){
-
-        let date = new Date(seconds * 1000);
-        let hh = date.getUTCHours();
-        let mm = date.getUTCMinutes();
-        let ss = date.getSeconds();
+        // Eg. 90,110
+        let ss = seconds % 60; // 50
+        let mm = Number.parseInt(seconds / 60); // 1501
+        let hh = Number.parseInt(mm / 60); // 25
+        mm = mm % 60; // 1
 
         if (hh < 10) {hh = "0"+hh;}
         if (mm < 10) {mm = "0"+mm;}
         if (ss < 10) {ss = "0"+ss;}
 
-        return hh+":"+mm+":"+ss;
+        return hh+":"+mm+":"+ss; // 25:01:50
 
     }
 
