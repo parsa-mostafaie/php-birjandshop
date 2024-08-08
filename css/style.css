@@ -1,5 +1,5 @@
 @import "./bootstrap.min.css";
-@import "./icons.min.css";
+@import url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css);
 @import url(https://dl.daneshjooyar.com/mvie/Moodi_Hamed/assets/css/font-yekanbakh-vf.css);
 
 /* Public styles */
@@ -101,7 +101,8 @@ section {
 .card-product .price:before {
   content: "";
   /*left: 0;
-  */width: 70%;
+  */
+  width: 70%;
   background: #ff4d4d;
   height: 1px;
   position: absolute;
@@ -146,7 +147,7 @@ section {
   display: none;
 }
 
-/* Cart Table */ 
+/* Cart Table */
 table.cart-table {
   width: 100%;
 }

@@ -23,18 +23,16 @@ $_product = $__component__product;
         </div>
       </header>
       <h3><?= $_product->title ?></h3>
-      <?php if ($_product->stock < 10): ?>
-        <p class="remain-stock">تنها <?= $_product->stock ?> عدد در انبار باقی مانده</p>
-      <?php endif; ?>
+      <?= $_product->remain_stock(true) ?>
     </main>
 
     <footer>
       <div class="sale-price">
-        <?= number_format($_product->get_sale_price()) ?>
+        <?= $_product->readable_sale_price() ?>
         <span>تومان</span>
       </div>
       <?php if ($_product->has_discount()): ?>
-        <div class="price"><?= number_format($_product->price) ?></div>
+        <div class="price"><?= $_product->readable_price() ?></div>
       <?php endif; ?>
     </footer>
   </a>
