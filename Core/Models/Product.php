@@ -64,6 +64,11 @@ class Product extends Model
         return ProductImage::get_img($this->_id());
     }
 
+    function sp_image()
+    {
+        return ProductImage::get_img($this->_id(), 'style="max-width: 100%; aspect-ratio: 1 / 1"');
+    }
+
     function cart_image()
     {
         return ProductImage::get_img($this->_id(), 'width="36" height="36"');
@@ -85,5 +90,10 @@ class Product extends Model
     function is_in_cart()
     {
         return cart()->index_of($this->_id()) !== false;
+    }
+
+    function get_discount_percent()
+    {
+        return round(($this->price - $this->get_sale_price()) / $this->price * 100);
     }
 }
