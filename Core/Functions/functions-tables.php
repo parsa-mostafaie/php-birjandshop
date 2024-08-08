@@ -32,7 +32,7 @@ function cart_table()
         '',
         '',
         function () { ?>
-        <ins><?= number_format(cart()->get_subtotal()); ?></ins>
+        <ins><?= number_format(cart()->get_total()); ?></ins>
         <?php
         }
       ]);
