@@ -8,7 +8,7 @@ if (!$__component__product instanceof Product) {
 $_product = $__component__product;
 
 ?>
-<div class="col-sm-3">
+<div class="col-sm-6 col-md-4 col-12 col-lg-3">
   <a class="card-product card h-100 d-flex justify-content-between" href="<?= url($_product->get_route()) ?>">
     <main>
       <header>
