@@ -31,8 +31,8 @@ normalize_route();
 ?>
 <section class="container bg-white p-4 rounded">
   <div class="px-lg-2">
-    <main class="d-flex gap-2">
-      <nav class="flex-grow-1 d-flex flex-column gap-2" style="max-width: 33%">
+    <main class="d-flex flex-column gap-2 flex-md-row">
+      <nav class="flex-grow-1 d-flex flex-column gap-2" style="flex-basis: 33%">
         <?php if ($product->has_discount() && !empty($product->discount_date)): ?>
           <div class="bg-danger p-2 w-100 d-flex justify-content-between align-items-center rounded"
             style="--bs-bg-opacity: 0.1">
@@ -44,7 +44,7 @@ normalize_route();
           <?= $product->sp_image() ?>
         </div>
       </nav>
-      <div class="flex-grow-1" style="max-width: 33%">
+      <div class="flex-grow-1" style="flex-basis: 33%">
         <h5><?= $product->title ?></h5>
         <hr>
         <p class="small">
@@ -63,7 +63,7 @@ normalize_route();
           ۹۶% (۹۹۹ نفر) از خریداران، این کالا را پیشنهاد کرده‌اند
         </p>
       </div>
-      <div class="flex-grow-1" style="max-width: 33%">
+      <div class="flex-grow-1" style="flex-basis: 33%">
         <div class="p-2 text-align-start bg-info text-white rounded px-3">
           <b class="text-black">قیمت</b>
           <div style="text-align: left">
