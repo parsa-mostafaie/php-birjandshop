@@ -27,7 +27,7 @@ if (!$product->can_view()) {
 meta()->title($product->title);
 ?>
 <?php include_once ('../components/header.php');
-normalize_route();
+add_footer('normalize_route');
 ?>
 <section class="container bg-white p-4 rounded">
   <div class="px-lg-2">

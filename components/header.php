@@ -9,6 +9,7 @@ include_once __DIR__ . '/../init.php';
   <meta charset="UTF-8">
   <title><?= meta('title', "فروشگاه اینترنتی") ?></title>
   <link rel="stylesheet" href="<?= c_url('/css/style.css', false); ?>">
+  <?php do_head() ?>
 </head>
 
 <body>
