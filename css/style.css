@@ -59,7 +59,7 @@ section {
 
 .card-product footer {
   display: grid;
-  grid-template-columns: repeat(auto-fit, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   padding-bottom: 10px;
 }
 
