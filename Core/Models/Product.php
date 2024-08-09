@@ -3,12 +3,33 @@ namespace Birjandshop\Models;
 
 use pluslib\Eloquent\Model;
 
+/**
+ * @property int $ID
+ * 
+ * @property string|int|\pluslib\Database\Expression $created_at
+ * 
+ * @property string|int|\pluslib\Database\Expression $discount_date
+ * 
+ * @property int $stock
+ * @property int|float $discount_percent
+ * @property int|float $price
+ * 
+ * @property int $sale_count
+ * @property int|float $total_sale
+ * 
+ * @property string $title
+ * @property string $content
+ * 
+ * @property string $thumbnail
+ */
 class Product extends Model
 {
 
   protected $table = 'products';
 
   protected $id_field = "ID";
+
+  const updated_at = null;
 
   public function get_sale_price()
   {
@@ -22,26 +43,6 @@ class Product extends Model
   public function has_discount()
   {
     return $this->get_sale_price() != $this->price;
-  }
-
-  public function add_view()
-  {
-    //Increase view for product
-  }
-
-  public function rate($rate, $user_id)
-  {
-
-  }
-
-  public function increase_sale_count($count)
-  {
-
-  }
-
-  public function increase_total_sale($price)
-  {
-
   }
 
   public function can_view()
