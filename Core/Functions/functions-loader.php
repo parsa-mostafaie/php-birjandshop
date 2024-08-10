@@ -6,3 +6,4 @@ include ('functions-tablify.php');
 include ('functions-tables.php');
 include ('functions-fe-lib.php');
 include ('functions-view.php');
+include ('functions-favicon.php');
