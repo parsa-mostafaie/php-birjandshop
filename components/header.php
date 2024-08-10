@@ -1,6 +1,10 @@
 <?php
+use pluslib\Config;
+
 include_once __DIR__ . '/../init.php';
 
+if (!Config::$devMode)
+  ob_start('minify_html');
 ?>
 <!DOCTYPE html>
 <html lang="fa">
