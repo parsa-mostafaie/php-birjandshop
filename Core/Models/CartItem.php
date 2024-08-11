@@ -1,8 +1,11 @@
 <?php
 namespace Birjandshop\Models;
 
+use Birjandshop\Traits\Price;
+
 class CartItem
 {
+    use Price;
     protected ?Product $product_model = null;
     public function __construct(protected $qty = 1, protected $product)
     {
@@ -16,6 +19,16 @@ class CartItem
     function calc_subtotal()
     {
         return $this->get_product()->price * $this->qty;
+    }
+
+    function readable_total()
+    {
+        return $this->readable_toman($this->calc_total());
+    }
+
+    function readable_subtotal()
+    {
+        return $this->readable_toman($this->calc_subtotal());
     }
 
     function get_qty()

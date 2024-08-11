@@ -32,7 +32,7 @@ function cart_table()
         '',
         '',
         function () { ?>
-        <ins><?= number_format(cart()->get_total()); ?></ins>
+        <ins><?= cart()->readable_total(); ?></ins>
         <?php
         }
       ]);
@@ -62,15 +62,15 @@ function cart_table()
     $td_render(function () use ($cartItem) {
       ?>
       <?php if ($cartItem->get_product()->has_discount()): ?>
-        <del><?= number_format($cartItem->get_product()->price) ?></del>
+        <del><?= $cartItem->get_product()->readable_price() ?></del>
       <?php endif; ?>
-      <ins><?= number_format($cartItem->get_product()->get_sale_price()) ?></ins>
+      <ins><?= $cartItem->get_product()->readable_sale_price() ?></ins>
       <?php
     });
 
     $td_render(function () use ($cartItem) {
       ?>
-      <ins><?= number_format($cartItem->calc_total()) ?></ins>
+      <ins><?= $cartItem->readable_total() ?></ins>
       <?php
     });
 

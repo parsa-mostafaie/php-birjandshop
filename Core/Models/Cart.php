@@ -1,10 +1,12 @@
 <?php
 namespace Birjandshop\Models;
 
+use Birjandshop\Traits\Price;
 use pluslib\Collections\Arr;
 
 class Cart
 {
+  use Price;
   function __construct()
   {
     if (!isset(session_arr()['cart'])) {
@@ -106,5 +108,15 @@ class Cart
     return array_search($product_id, array_keys(session('cart')));
   }
 
+  function readable_total()
+  {
+    return $this->readable_toman($this->get_total());
+  }
+
+
+  function readable_subotal()
+  {
+    return $this->readable_toman($this->get_subtotal());
+  }
 }
 

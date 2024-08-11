@@ -1,6 +1,7 @@
 <?php
 namespace Birjandshop\Models;
 
+use Birjandshop\Traits\Price;
 use pluslib\Eloquent\Model;
 
 /**
@@ -24,7 +25,7 @@ use pluslib\Eloquent\Model;
  */
 class Product extends Model
 {
-
+  use Price;
   protected $table = 'products';
 
   protected $id_field = "ID";
@@ -98,19 +99,14 @@ class Product extends Model
     return round(($this->price - $this->get_sale_price()) / $this->price * 100);
   }
 
-  function readable_value($val)
-  {
-    return number_format($val);
-  }
-
   function readable_sale_price()
   {
-    return $this->readable_value($this->get_sale_price());
+    return $this->readable_toman($this->get_sale_price());
   }
 
   function readable_price()
   {
-    return $this->readable_value($this->price);
+    return $this->readable_toman($this->price);
   }
 
   function remain_stock($no_hr = false)
