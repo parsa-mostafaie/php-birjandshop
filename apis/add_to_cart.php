@@ -14,4 +14,6 @@ if (setted('pid')) {
   }
 
   cart()->add_item($product->ID);
+
+  redirect(url(c_url('/cart.php')));
 }
