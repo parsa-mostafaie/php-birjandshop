@@ -103,6 +103,15 @@ class Cart
     return $this;
   }
 
+  function get_qty($product_id)
+  {
+    if (!$this->exists($product_id)) {
+      return 0;
+    }
+
+    return session('cart')[$product_id];
+  }
+
   function index_of($product_id)
   {
     return array_search($product_id, array_keys(session('cart')));

@@ -149,6 +149,7 @@ section {
 
 /* Cart Table */
 table.cart-table {
+  user-select: none;
   width: 100%;
 }
 
@@ -213,7 +214,7 @@ table.cart-table svg {
   transition: 0.3s;
 }
 
-table.cart-table tbody tr td:nth-child(2) {
+table.cart-table td:nth-child(2) div {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -274,4 +275,13 @@ a.go-to-cart span {
   border-radius: 50%;
   font-size: 14px;
   color: #fff;
+}
+
+/* CSS Cond */
+.cart-dec-1 {
+  display: none !important;
+}
+
+.cart-inc-max {
+  display: none !important;
 }

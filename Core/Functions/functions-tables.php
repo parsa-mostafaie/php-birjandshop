@@ -43,21 +43,34 @@ function cart_table()
 
     $td_render(function () use ($cartItem) {
       ?>
-      <a href="<?= $cartItem->get_product()->get_route() ?>">
-        <?= $cartItem->get_product()->cart_image() ?>
-        <p>
-          <?= $cartItem->get_product()->title ?>
-        </p>
-      </a>
-      <a http-method="delete" ajax-reload="[id^=cart]" danger-btn
-        href="<?= url(c_url('/apis/remove_from_cart.php'), ['pid' => $cartItem->get_product()->_id()]) ?>"
-        class="remove-item">
-        <?= svg_remove_item() ?>
-      </a>
+      <div><a href="<?= $cartItem->get_product()->get_route() ?>">
+          <?= $cartItem->get_product()->cart_image() ?>
+          <p>
+            <?= $cartItem->get_product()->title ?>
+          </p>
+        </a>
+        <a http-method="delete" ajax-reload="[id^=cart]" danger-btn
+          href="<?= url(c_url('/apis/remove_from_cart.php'), ['pid' => $cartItem->get_product()->_id()]) ?>"
+          class="remove-item">
+          <?= svg_remove_item() ?>
+        </a>
+      </div>
       <?php
     });
 
-    $td_render($cartItem->get_qty());
+    $td_render(function () use ($cartItem) {
+      $inc = url(c_url('/apis/qty_inc.php'), ['pid' => $cartItem->get_product()->_id()]);
+      $dec = url(c_url('/apis/qty_dec.php'), ['pid' => $cartItem->get_product()->_id()]);
+
+      ?>
+      <a http-method="post" ajax-reload="[id^=cart]" href="<?= $dec ?>"
+        class="text-danger text-decoration-none fs-3 cart-dec-<?= $cartItem->get_qty() ?>">-</a>
+      <span class="fs-6"><?= $cartItem->get_qty() ?></span>
+      <a http-method="post" ajax-reload="[id^=cart]" href="<?= $inc ?>"
+        class="text-success text-decoration-none fs-3 <?= $cartItem->get_product()->stock <= $cartItem->get_qty() ? 'cart-inc-max' : '' ?>">+</a>
+
+      <?php
+    });
 
     $td_render(function () use ($cartItem) {
       ?>
