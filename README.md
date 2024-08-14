@@ -7,7 +7,9 @@
 
 ## How to install dependencies?
 
- ```composer install```
+ ```bash
+ composer install
+ ```
 
 ## Core/config.php
 
