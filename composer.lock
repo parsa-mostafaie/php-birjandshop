@@ -4,11 +4,50 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8d070178755c320c69f93ee4800660ef",
-    "packages": [],
+    "content-hash": "d591aded8965d59e60e03effb92ef30e",
+    "packages": [
+        {
+            "name": "parsa/pluslib",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/parsa-mostafaie/pluslib.git",
+                "reference": "3a2bfe7ce3a18dbb9fc5d2774b297f0a7d3756fa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/parsa-mostafaie/pluslib/zipball/3a2bfe7ce3a18dbb9fc5d2774b297f0a7d3756fa",
+                "reference": "3a2bfe7ce3a18dbb9fc5d2774b297f0a7d3756fa",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "init.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Parsa Mostafaie",
+                    "email": "pmostafaie1390@gmail.com"
+                }
+            ],
+            "description": "Simple, Object Oriented, Secure, Compatible",
+            "support": {
+                "issues": "https://github.com/parsa-mostafaie/pluslib/issues",
+                "source": "https://github.com/parsa-mostafaie/pluslib/tree/v0.0.12001"
+            },
+            "time": "2024-08-14T09:25:53+00:00"
+        }
+    ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,

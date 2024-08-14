@@ -2,11 +2,10 @@
     "autoload" : {
         "psr-4" : {
             "Birjandshop\\": "Core/"
-        },
-        "files": [
-            "../libs/pluslib/init.php"
-        ]
+        }
     },
     "require": {
-    }
+        "parsa/pluslib": "dev-master"
+    },
+    "minimum-stability": "dev"
 }
