@@ -1,8 +1,8 @@
 <?php
 function view($url, $id = null, $props = [], $without_loading = false)
 {
-  $url = url($url . ".php", $props);
-  $url = c_url('/Views/' . $url);
+  $url = url("$url.php", $props);
+  $url = c_url("/Views/$url");
   $etc = etc_url($url);
   $www = www_url($url);
 
@@ -22,6 +22,6 @@ function view($url, $id = null, $props = [], $without_loading = false)
   </div>
   <?php
   useDangerButtons();
-  useAjaxContent();
   useHTTPLink();
+  useAjaxContent();
 }
