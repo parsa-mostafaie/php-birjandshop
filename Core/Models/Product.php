@@ -126,4 +126,16 @@ class Product extends Model
     <?php endif ?>
   <?php
   }
+
+  function is_special()
+  {
+    return $this->has_discount() && !empty($this->discount_date);
+  }
+
+  function getClassAttribute()
+  {
+    $special = $this->is_special() ? 'product-special' : '';
+    $discount = $this->has_discount() ? 'product-discounted' : '';
+    return trim("product $special $discount");
+  }
 }

@@ -2,7 +2,7 @@
 use Birjandshop\Models\Product;
 use pluslib\SEO\MetaTags;
 
-require ('lib.php');
+require('lib.php');
 
 if (!product_id()) {
   __404__();
@@ -26,20 +26,18 @@ if (!$product->can_view()) {
 
 meta()->title($product->title);
 ?>
-<?php include_once ('../components/header.php');
+<?php include_once('../components/header.php');
 add_footer('normalize_route');
 ?>
 <section class="container bg-white p-4 rounded">
-  <div class="px-lg-2">
+  <div class="px-lg-2 <?= $product->class ?>">
     <main class="d-flex flex-column gap-2 flex-md-row">
       <nav class="flex-grow-1 d-flex flex-column gap-2" style="flex-basis: 33%">
-        <?php if ($product->has_discount() && !empty($product->discount_date)): ?>
-          <div class="bg-danger p-2 w-100 d-flex justify-content-between align-items-center rounded"
-            style="--bs-bg-opacity: 0.1">
-            <div class="fw-bold text-danger">پیشنهاد شگفت انگیز</div>
-            <div class="countdown position-static d-block text- fs-6" data-time="<?= $product->discount_date ?>"></div>
-          </div>
-        <?php endif; ?>
+        <div class="bg-danger p-2 w-100 d-flex justify-content-between align-items-center rounded if-special"
+          style="--bs-bg-opacity: 0.1">
+          <div class="fw-bold text-danger">پیشنهاد شگفت انگیز</div>
+          <div class="countdown position-static d-block text- fs-6" data-time="<?= $product->discount_date ?>"></div>
+        </div>
         <div style="max-width: 100%">
           <?= $product->sp_image() ?>
         </div>
@@ -67,13 +65,11 @@ add_footer('normalize_route');
         <div class="p-2 text-align-start bg-info text-white rounded px-3">
           <b class="text-black">قیمت</b>
           <div style="text-align: left">
-            <?php if ($product->has_discount()): ?>
-              <div class="d-flex gap-1 justify-content-end">
-                <del class="text-secondary"><?= $product->readable_price() ?></del>
-                <span
-                  class="badge bg-danger text-white rounded-pill align-middle d-flex justify-content-center align-items-center"><?= $product->get_discount_percent() ?>%</span>
-              </div>
-            <?php endif ?>
+            <div class="d-flex gap-1 justify-content-end if-discount">
+              <del class="text-secondary"><?= $product->readable_price() ?></del>
+              <span
+                class="badge bg-danger text-white rounded-pill align-middle d-flex justify-content-center align-items-center"><?= $product->get_discount_percent() ?>%</span>
+            </div>
             <span class="text-success"><?= $product->readable_sale_price() ?></span>
             <span>تومان</span>
           </div>
@@ -88,4 +84,4 @@ add_footer('normalize_route');
     <?= $product->content ?>
   </div>
 </section>
-<?php include_once ('../components/footer.php') ?>
+<?php include_once('../components/footer.php') ?>

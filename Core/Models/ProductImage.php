@@ -7,7 +7,7 @@ class ProductImage extends UploadBaseColumn
 {
   protected ?string $table = 'products';
   protected string $colName = 'thumbnail';
-  protected string $prefix = 'product.photo';
+  protected string $prefix = 'products/';
 
   function __construct()
   {

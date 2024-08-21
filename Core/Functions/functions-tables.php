@@ -63,11 +63,13 @@ function cart_table()
       $dec = url(c_url('/apis/qty_dec.php'), ['pid' => $cartItem->get_product()->_id()]);
 
       ?>
-      <a http-method="post" ajax-reload="[id^=cart]" href="<?= $dec ?>"
-        class="text-danger text-decoration-none fs-3 cart-dec-<?= $cartItem->get_qty() ?>">-</a>
-      <span class="fs-6"><?= $cartItem->get_qty() ?></span>
-      <a http-method="post" ajax-reload="[id^=cart]" href="<?= $inc ?>"
-        class="text-success text-decoration-none fs-3 <?= $cartItem->get_product()->stock <= $cartItem->get_qty() ? 'cart-inc-max' : '' ?>">+</a>
+      <div class="<?= $cartItem->get_INCDEC_Class() ?>">
+        <a http-method="post" ajax-reload="[id^=cart]" href="<?= $dec ?>"
+          class="text-danger text-decoration-none fs-3 if-inc-allowed">-</a>
+        <span class="fs-6"><?= $cartItem->get_qty() ?></span>
+        <a http-method="post" ajax-reload="[id^=cart]" href="<?= $inc ?>"
+          class="text-success text-decoration-none fs-3 if-dec-allowed">+</a>
+      </div>
 
       <?php
     });

@@ -53,4 +53,12 @@ class CartItem
     {
         return $this->to_array();
     }
+
+    function get_INCDEC_Class()
+    {
+        $max = $this->get_product()->stock <= $this->get_qty() ? 'cart-item-max' : '';
+        $min = $this->get_qty() <= 1 ? 'cart-item-min' : '';
+
+        return trim("ci-in-de-c $max $min");
+    }
 }

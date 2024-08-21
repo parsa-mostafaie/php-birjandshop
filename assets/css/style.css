@@ -278,19 +278,19 @@ a.go-to-cart span {
 }
 
 /* CSS Cond */
-.cart-dec-1 {
+.ci-in-de-c.cart-item-max .if-dec-allowed{
   display: none !important;
 }
 
-.cart-inc-max {
+.ci-in-de-c.cart-item-min .if-inc-allowed {
   display: none !important;
 }
 
 /* Conditions for products */
-.product:not(.product-special) .special {
+.product:not(.product-special) .if-special {
   display: none !important;
 }
 
-.product:not(.product-discounted) .discount {
+.product:not(.product-discounted) .if-discount {
   display: none !important;
 }

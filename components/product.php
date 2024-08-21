@@ -8,7 +8,7 @@ if (!$__component__product instanceof Product) {
 $_product = $__component__product;
 
 ?>
-<div class="col-sm-6 col-md-4 col-12 col-xl-3">
+<div class="col-sm-6 col-md-4 col-12 col-xl-3 <?= $_product->class ?>">
   <a class="card-product card h-100 d-flex justify-content-between" href="<?= url($_product->get_route()) ?>">
     <main>
       <header>
@@ -17,9 +17,8 @@ $_product = $__component__product;
         </div>
         <div class="position-relative">
           <?= $_product->card_image() ?>
-          <?php if ($_product->has_discount()): ?>
-            <div class="discount position-absolute top-0 " style="left: 0"><?= $_product->get_discount_percent() ?>%</div>
-          <?php endif; ?>
+          <div class="discount position-absolute top-0 if-discount" style="left: 0">
+            <?= $_product->get_discount_percent() ?>%</div>
         </div>
       </header>
       <h3><?= $_product->title ?></h3>
@@ -31,9 +30,7 @@ $_product = $__component__product;
         <?= $_product->readable_sale_price() ?>
         <span>تومان</span>
       </div>
-      <?php if ($_product->has_discount()): ?>
-        <div class="price"><?= $_product->readable_price() ?></div>
-      <?php endif; ?>
+      <div class="price if-discount"><?= $_product->readable_price() ?></div>
     </footer>
   </a>
 </div>
