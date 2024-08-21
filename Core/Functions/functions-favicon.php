@@ -2,7 +2,7 @@
 
 function __favicon()
 {
-  $path = url(c_url('/icons/'));
+  $path = url(c_url('/assets/icons/'));
   ?>
   <link rel="shortcut icon" href="<?=$path?>favicon.png" type="image/png">
   <link type="image/png" sizes="16x16" rel="icon" href="<?= $path ?>size-16.png">

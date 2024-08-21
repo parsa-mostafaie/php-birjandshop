@@ -28,7 +28,7 @@ function __HTTPLink()
 function __AjaxInit1()
 {
   ?>
-  <script src="<?= www_url(c_url('/js/ajaxInit1.js', false)) ?>" type="module"></script>
+  <script src="<?= www_url(c_url('/assets/js/ajaxInit1.js', false)) ?>" type="module"></script>
   <?php
 }
 
@@ -52,7 +52,7 @@ function __DangerButtons()
     return;
   }
   ?>
-  <script src="<?= www_url(c_url('/js/dangerbtn.js')) ?>"></script>
+  <script src="<?= www_url(c_url('/assets/js/dangerbtn.js')) ?>"></script>
   <?php
   $imported = true;
 }
@@ -73,7 +73,7 @@ function __AjaxContent()
 function __JQ()
 {
   ?>
-  <script src="<?= www_url(c_url('/js/jquery-3.7.1.min.js')) ?>"></script>
+  <script src="<?= www_url(c_url('/assets/js/jquery-3.7.1.min.js')) ?>"></script>
   <?php
 }
 

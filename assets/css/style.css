@@ -33,7 +33,7 @@ section {
   font-size: 18px;
   line-height: 150%;
   height: 54px;
-  -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -283,5 +283,14 @@ a.go-to-cart span {
 }
 
 .cart-inc-max {
+  display: none !important;
+}
+
+/* Conditions for products */
+.product:not(.product-special) .special {
+  display: none !important;
+}
+
+.product:not(.product-discounted) .discount {
   display: none !important;
 }

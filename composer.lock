@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/parsa-mostafaie/pluslib.git",
-                "reference": "3a2bfe7ce3a18dbb9fc5d2774b297f0a7d3756fa"
+                "reference": "bfdfa38d292c7f69cb22828c4775f4f441d3d441"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/parsa-mostafaie/pluslib/zipball/3a2bfe7ce3a18dbb9fc5d2774b297f0a7d3756fa",
-                "reference": "3a2bfe7ce3a18dbb9fc5d2774b297f0a7d3756fa",
+                "url": "https://api.github.com/repos/parsa-mostafaie/pluslib/zipball/bfdfa38d292c7f69cb22828c4775f4f441d3d441",
+                "reference": "bfdfa38d292c7f69cb22828c4775f4f441d3d441",
                 "shasum": ""
             },
             "default-branch": true,
@@ -40,15 +40,17 @@
             "description": "Simple, Object Oriented, Secure, Compatible",
             "support": {
                 "issues": "https://github.com/parsa-mostafaie/pluslib/issues",
-                "source": "https://github.com/parsa-mostafaie/pluslib/tree/v0.0.12001"
+                "source": "https://github.com/parsa-mostafaie/pluslib/tree/v0.0.121"
             },
-            "time": "2024-08-14T09:25:53+00:00"
+            "time": "2024-08-20T17:48:16+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "parsa/pluslib": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
