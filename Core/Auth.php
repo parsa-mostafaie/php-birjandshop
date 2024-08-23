@@ -1,5 +1,5 @@
 <?php
-namespace App;
+namespace Birjandshop;
 
 use pluslib\Auth as PluslibAuth;
 

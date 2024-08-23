@@ -1,6 +1,4 @@
 <?php
-use pluslib\Config;
-
 include_once __DIR__ . '/../init.php';
 
 ob_start('minify_html');
